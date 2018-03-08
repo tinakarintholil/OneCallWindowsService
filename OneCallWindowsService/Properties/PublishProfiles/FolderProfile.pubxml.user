@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Publish\OneCall</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/AjaxControlToolkit.dll">
+      <publishTime>01/03/2018 13:07:59</publishTime>
+    </File>
+    <File Include="bin/DiffieHellman.dll">
+      <publishTime>03/13/2017 14:49:58</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>03/08/2017 19:26:22</publishTime>
+    </File>
+    <File Include="bin/OneCallWindowsService.dll">
+      <publishTime>03/08/2018 11:52:16</publishTime>
+    </File>
+    <File Include="bin/OneCallWindowsService.pdb">
+      <publishTime>03/08/2018 11:52:16</publishTime>
+    </File>
+    <File Include="bin/Org.Mentalis.Security.dll">
+      <publishTime>03/13/2017 14:49:58</publishTime>
+    </File>
+    <File Include="bin/Tamir.SharpSSH.dll">
+      <publishTime>05/26/2011 12:43:20</publishTime>
+    </File>
+    <File Include="Content/themes/base/accordion.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/all.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/autocomplete.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/base.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/button.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/core.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/datepicker.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/dialog.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/draggable.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_444444_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_555555_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_777620_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_777777_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cc0000_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_ffffff_256x240.png">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.min.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/menu.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/progressbar.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/resizable.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectable.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectmenu.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/slider.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/sortable.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/spinner.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/tabs.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/theme.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Content/themes/base/tooltip.css">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Error.aspx">
+      <publishTime>02/05/2018 10:21:38</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/01/2018 13:17:07</publishTime>
+    </File>
+    <File Include="Images/animatedload.gif">
+      <publishTime>02/15/2018 15:18:32</publishTime>
+    </File>
+    <File Include="Images/loader.png">
+      <publishTime>02/15/2018 10:30:11</publishTime>
+    </File>
+    <File Include="Images/Loading_Animation.gif">
+      <publishTime>01/30/2018 17:34:42</publishTime>
+    </File>
+    <File Include="Images/onecall.jpg">
+      <publishTime>02/02/2018 13:18:00</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.12.4.js">
+      <publishTime>01/30/2018 09:54:09</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.12.4.min.js">
+      <publishTime>01/30/2018 09:54:09</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.12.4.min.map">
+      <publishTime>01/30/2018 09:54:09</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1.js">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.12.1.min.js">
+      <publishTime>01/30/2018 09:54:11</publishTime>
+    </File>
+    <File Include="SendMessage.aspx">
+      <publishTime>03/07/2018 11:47:28</publishTime>
+    </File>
+    <File Include="StyleSheet1.css">
+      <publishTime>02/28/2018 11:32:13</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNAttributeReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNAudioItemBytesReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNAudioLibraryReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNDestReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNGroupOptionsReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNLanguageOptionsReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNMessageBuilderInfoReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNMessageReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNMessengerPrivilegeReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNReportReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNSavedMessageInfoReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNSearchRosterReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNSubgroupDataReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNSubGroupExistReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/OCNSubGroupsListReturn.datasource">
+      <publishTime>02/12/2018 10:47:28</publishTime>
+    </File>
+    <File Include="Web References/com.onecallnow.api/Reference.map">
+      <publishTime>01/29/2018 11:20:32</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>03/08/2018 11:52:37</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

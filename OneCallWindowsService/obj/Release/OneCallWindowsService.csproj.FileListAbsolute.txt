@@ -1,0 +1,16 @@
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\obj\Release\OneCallWindowsService.csproj.CoreCompileInputs.cache
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\obj\Release\OneCallWindowsService.dll
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\obj\Release\OneCallWindowsService.pdb
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\obj\Release\OneCallWindowsService.csprojResolveAssemblyReference.cache
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\OneCallWindowsService.dll.config
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\OneCallWindowsService.dll
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\OneCallWindowsService.XmlSerializers.dll
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\OneCallWindowsService.pdb
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\AjaxControlToolkit.dll
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\DiffieHellman.dll
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\log4net.dll
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\Org.Mentalis.Security.dll
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\Tamir.SharpSSH.dll
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\AjaxMin.dll
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\bin\log4net.xml
+C:\Users\tkarintholil\source\repos\OneCallWindowsService\OneCallWindowsService\obj\Release\OneCallWindowsService.XmlSerializers.dll

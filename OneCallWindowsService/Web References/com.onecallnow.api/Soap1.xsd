@@ -1,0 +1,1346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/OCN_v3" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/OCN_v3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/OCN.Web.WebControls.WebServices" />
+  <xs:import schemaLocation="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="OCNReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CallingIP" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/OCN.Web.WebControls.WebServices" minOccurs="0" name="ErrorCode" type="q1:Common.OCNErrorCode" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessengerType" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Warnings" nillable="true" type="q2:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OCNReturn" nillable="true" type="tns:OCNReturn" />
+  <xs:complexType name="MessagesToSendSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailMessage" nillable="true" type="tns:EmailMessageSettings" />
+      <xs:element minOccurs="0" name="EmailMessageDefined" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PhoneMessage" nillable="true" type="tns:PhoneMessageSettings" />
+      <xs:element minOccurs="0" name="PhoneMessageDefined" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SMSMessage" nillable="true" type="tns:SMSMessageSettings" />
+      <xs:element minOccurs="0" name="SMSMessageDefined" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TypeOfMessage" type="tns:TypeOfMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessagesToSendSettings" nillable="true" type="tns:MessagesToSendSettings" />
+  <xs:complexType name="EmailMessageSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailMessageSettings" nillable="true" type="tns:EmailMessageSettings" />
+  <xs:complexType name="PhoneMessageSettings">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GeneralPhoneMessageSettings">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AudioLibrary" nillable="true" type="tns:AudioLibrarySettings" />
+          <xs:element minOccurs="0" name="MessageType" type="tns:PhoneMessageType" />
+          <xs:element minOccurs="0" name="TextToSpeech" nillable="true" type="tns:TextToSpeechSettings" />
+          <xs:element minOccurs="0" name="UploadRecordedFile" nillable="true" type="tns:RecordedFileSettings" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PhoneMessageSettings" nillable="true" type="tns:PhoneMessageSettings" />
+  <xs:complexType name="GeneralPhoneMessageSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnsweringMachine" type="tns:AnsweringMachineDelivery" />
+      <xs:element minOccurs="0" name="HotTransfer" nillable="true" type="tns:HotTransferSettings" />
+      <xs:element minOccurs="0" name="IgnoreDestinationTimezone" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OriginationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumberFormat" type="tns:PhoneFormat" />
+      <xs:element minOccurs="0" name="PinSource" type="tns:PINSourceLocation" />
+      <xs:element minOccurs="0" name="PollingOptionsSettings" nillable="true" type="tns:PollingOptionsSettings" />
+      <xs:element minOccurs="0" name="QuotaSettings" nillable="true" type="tns:QuotaSettings" />
+      <xs:element minOccurs="0" name="RequireDeliveryPIN" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Response" type="tns:ResponseType" />
+      <xs:element minOccurs="0" name="ResponseDescriptions" nillable="true" type="tns:ArrayOfResponseValueDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeneralPhoneMessageSettings" nillable="true" type="tns:GeneralPhoneMessageSettings" />
+  <xs:simpleType name="AnsweringMachineDelivery">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Live_And_Machine">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">84</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Live_Only">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">76</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Live_Only_Until_500pm">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">53</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Live_Only_Until_530pm">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Live_Only_Until_600pm">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">54</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Live_Only_Until_630pm">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">66</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="AnsweringMachineDelivery" nillable="true" type="tns:AnsweringMachineDelivery" />
+  <xs:complexType name="HotTransferSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExpectedTransferRate" type="xs:float" />
+      <xs:element minOccurs="0" name="NumberOfOperators" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestKey" type="ser:char" />
+      <xs:element minOccurs="0" name="ToNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HotTransferSettings" nillable="true" type="tns:HotTransferSettings" />
+  <xs:simpleType name="PhoneFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="USCanadaOnly">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">85</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InternationalWithPlus">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">80</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CountryCode">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">67</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PhoneFormat" nillable="true" type="tns:PhoneFormat" />
+  <xs:simpleType name="PINSourceLocation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">78</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Group">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">71</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MemberPIN">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MemberExternalID">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">69</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Last4DigitsOfExternalID">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">52</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="File">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">70</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PINSourceLocation" nillable="true" type="tns:PINSourceLocation" />
+  <xs:complexType name="PollingOptionsSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Option_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Option_10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Option_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Option_3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Option_4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Option_5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Option_6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Option_7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Option_8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Option_9" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:PollType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PollingOptionsSettings" nillable="true" type="tns:PollingOptionsSettings" />
+  <xs:simpleType name="PollType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Poll_Response">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">89</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="No_Poll_Response">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">78</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Poll_Response_with_Transfer">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">84</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PIN_Entered">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">80</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Join_Conference">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">74</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PollType" nillable="true" type="tns:PollType" />
+  <xs:complexType name="QuotaSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Accept_Reply" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Decline_Reply" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndividualSubgroupQuotas" type="xs:boolean" />
+      <xs:element minOccurs="0" name="QuotaCondition" type="tns:QuotaCondition" />
+      <xs:element minOccurs="0" name="QuotaCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Quota_Met_Reply" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SequenceMembers" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubgroupQuotas" nillable="true" type="tns:ArrayOfSubgroupQuota" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuotaSettings" nillable="true" type="tns:QuotaSettings" />
+  <xs:simpleType name="QuotaCondition">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TouchTone0" />
+      <xs:enumeration value="TouchTone1" />
+      <xs:enumeration value="TouchTone2" />
+      <xs:enumeration value="TouchTone3" />
+      <xs:enumeration value="TouchTone4" />
+      <xs:enumeration value="TouchTone5" />
+      <xs:enumeration value="TouchTone6" />
+      <xs:enumeration value="TouchTone7" />
+      <xs:enumeration value="TouchTone8" />
+      <xs:enumeration value="TouchTone9" />
+      <xs:enumeration value="PIN" />
+      <xs:enumeration value="Transfer" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="QuotaCondition" nillable="true" type="tns:QuotaCondition" />
+  <xs:complexType name="ArrayOfSubgroupQuota">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubgroupQuota" nillable="true" type="tns:SubgroupQuota" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubgroupQuota" nillable="true" type="tns:ArrayOfSubgroupQuota" />
+  <xs:complexType name="SubgroupQuota">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="QuotaCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SubgroupNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubgroupQuota" nillable="true" type="tns:SubgroupQuota" />
+  <xs:simpleType name="ResponseType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NoResponse">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">78</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="TouchTone">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">89</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Transfer">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">84</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="ResponseType" nillable="true" type="tns:ResponseType" />
+  <xs:complexType name="ArrayOfResponseValueDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseValueDescription" nillable="true" type="tns:ResponseValueDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResponseValueDescription" nillable="true" type="tns:ArrayOfResponseValueDescription" />
+  <xs:complexType name="ResponseValueDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" type="ser:char" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseValueDescription" nillable="true" type="tns:ResponseValueDescription" />
+  <xs:complexType name="AudioLibrarySettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnsweringMachineAudioLibraryID" type="xs:int" />
+      <xs:element minOccurs="0" name="AudioLibraryID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AudioLibrarySettings" nillable="true" type="tns:AudioLibrarySettings" />
+  <xs:simpleType name="PhoneMessageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="TextToSpeech">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">84</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AudioLibrary">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UploadRecording">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">82</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PhoneMessageType" nillable="true" type="tns:PhoneMessageType" />
+  <xs:complexType name="TextToSpeechSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TextToSpeechMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Voice" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TextToSpeechSettings" nillable="true" type="tns:TextToSpeechSettings" />
+  <xs:complexType name="RecordedFileSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="WAVFileContents" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="endFormat" type="tns:DocEncodingFormat" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecordedFileSettings" nillable="true" type="tns:RecordedFileSettings" />
+  <xs:simpleType name="DocEncodingFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Base64String" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocEncodingFormat" nillable="true" type="tns:DocEncodingFormat" />
+  <xs:complexType name="SMSMessageSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UseGroupIntro" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SMSMessageSettings" nillable="true" type="tns:SMSMessageSettings" />
+  <xs:simpleType name="TypeOfMessage">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Informational" />
+      <xs:enumeration value="Urgent" />
+      <xs:enumeration value="Quota_Call" />
+      <xs:enumeration value="Sequenced_Quota_Call_ByMember" />
+      <xs:enumeration value="Sequenced_Quota_Call_ByMember_and_Phone" />
+      <xs:enumeration value="Sequenced_Call_ByPhone" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TypeOfMessage" nillable="true" type="tns:TypeOfMessage" />
+  <xs:complexType name="DestinationSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CallBackURL" nillable="true" type="xs:string" />
+      <xs:element name="DestinationSource" type="tns:DestinationSource" />
+      <xs:element minOccurs="0" name="FileSettings" nillable="true" type="tns:DestinationFileSettings" />
+      <xs:element minOccurs="0" name="SubgroupSettings" nillable="true" type="tns:DestinationSubgroupSettings" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DestinationSettings" nillable="true" type="tns:DestinationSettings" />
+  <xs:simpleType name="DestinationSource">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Roster" />
+      <xs:enumeration value="FileOfRosterExternalIDs" />
+      <xs:enumeration value="FileOfDestinations" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DestinationSource" nillable="true" type="tns:DestinationSource" />
+  <xs:complexType name="DestinationFileSettings">
+    <xs:sequence>
+      <xs:element name="DestinationFileContents" nillable="true" type="xs:base64Binary" />
+      <xs:element name="Filename" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DestinationFileSettings" nillable="true" type="tns:DestinationFileSettings" />
+  <xs:complexType name="DestinationSubgroupSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CallMemberPhonesInSequence" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SendToPrimaryNumbersOnly" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubGroups" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DestinationSubgroupSettings" nillable="true" type="tns:DestinationSubgroupSettings" />
+  <xs:complexType name="WhenToSendSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContinueNextDay" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EndHour" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartHour" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WhenToSendSettings" nillable="true" type="tns:WhenToSendSettings" />
+  <xs:complexType name="OCNMessageReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MessageGroup_ID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNMessageReturn" nillable="true" type="tns:OCNMessageReturn" />
+  <xs:complexType name="MessageBuilderSettings">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GeneralPhoneMessageSettings">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MessageBuilderCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeOfMessage" type="tns:TypeOfMessage" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MessageBuilderSettings" nillable="true" type="tns:MessageBuilderSettings" />
+  <xs:complexType name="OCNSavedMessageInfoReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MessageList" nillable="true" type="tns:ArrayOfSavedMessageInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNSavedMessageInfoReturn" nillable="true" type="tns:OCNSavedMessageInfoReturn" />
+  <xs:complexType name="ArrayOfSavedMessageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SavedMessageInfo" nillable="true" type="tns:SavedMessageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSavedMessageInfo" nillable="true" type="tns:ArrayOfSavedMessageInfo" />
+  <xs:complexType name="SavedMessageInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MessageSetupInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FTPFileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MessageSource" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MessageType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SavedMessageInfo" nillable="true" type="tns:SavedMessageInfo" />
+  <xs:complexType name="MessageSetupInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Destination" type="tns:DestinationSource" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:MessageSetupType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageSetupInfo" nillable="true" type="tns:MessageSetupInfo" />
+  <xs:simpleType name="MessageSetupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Messagebuilder" />
+      <xs:enumeration value="CannedCall" />
+      <xs:enumeration value="ScenarioCall" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessageSetupType" nillable="true" type="tns:MessageSetupType" />
+  <xs:complexType name="OCNMessageBuilderInfoReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MessageList" nillable="true" type="tns:ArrayOfMessageBuilderInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNMessageBuilderInfoReturn" nillable="true" type="tns:OCNMessageBuilderInfoReturn" />
+  <xs:complexType name="ArrayOfMessageBuilderInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageBuilderInfo" nillable="true" type="tns:MessageBuilderInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageBuilderInfo" nillable="true" type="tns:ArrayOfMessageBuilderInfo" />
+  <xs:complexType name="MessageBuilderInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MessageSetupInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Email_Delivery" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone_Delivery" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SMS_Delivery" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Voice" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MessageBuilderInfo" nillable="true" type="tns:MessageBuilderInfo" />
+  <xs:complexType name="SubGroupUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MemberType" type="tns:MemberTypeIDType" />
+      <xs:element minOccurs="0" name="sg_MemberIDs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sg_MemoText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sg_Messengers" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sg_Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sg_Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sg_Type" type="tns:SubgroupType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubGroupUpdate" nillable="true" type="tns:SubGroupUpdate" />
+  <xs:simpleType name="MemberTypeIDType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MemberKey" />
+      <xs:enumeration value="ExternalID" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MemberTypeIDType" nillable="true" type="tns:MemberTypeIDType" />
+  <xs:simpleType name="SubgroupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Standard" />
+      <xs:enumeration value="Admin" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubgroupType" nillable="true" type="tns:SubgroupType" />
+  <xs:complexType name="OCNSubgroupDataReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SubgroupData" nillable="true" type="tns:SubGroupData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNSubgroupDataReturn" nillable="true" type="tns:OCNSubgroupDataReturn" />
+  <xs:complexType name="SubGroupData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNum" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubGroupData" nillable="true" type="tns:SubGroupData" />
+  <xs:complexType name="OCNSubGroupExistReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SubgroupExist" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNSubGroupExistReturn" nillable="true" type="tns:OCNSubGroupExistReturn" />
+  <xs:complexType name="OCNSubGroupsListReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="sg_list" nillable="true" type="tns:SubGroupsList" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNSubGroupsListReturn" nillable="true" type="tns:OCNSubGroupsListReturn" />
+  <xs:complexType name="SubGroupsList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SubGroupCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SubGroupsLeft" type="xs:int" />
+      <xs:element minOccurs="0" name="Subgroups" nillable="true" type="tns:ArrayOfSubGroupInfo" />
+      <xs:element minOccurs="0" name="TotalEmailCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalMemberCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalPhoneCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubGroupsList" nillable="true" type="tns:SubGroupsList" />
+  <xs:complexType name="ArrayOfSubGroupInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubGroupInfo" nillable="true" type="tns:SubGroupInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubGroupInfo" nillable="true" type="tns:ArrayOfSubGroupInfo" />
+  <xs:complexType name="SubGroupInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Key" type="xs:int" />
+      <xs:element minOccurs="0" name="MemberCount" type="xs:int" />
+      <xs:element minOccurs="0" name="MessengerCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PhoneCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SubGroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubGroupNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:SubgroupType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubGroupInfo" nillable="true" type="tns:SubGroupInfo" />
+  <xs:complexType name="SearchCriteria">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="By" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="For" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchCriteria" nillable="true" type="tns:SearchCriteria" />
+  <xs:complexType name="Paging">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Index" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PageCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Size" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Paging" nillable="true" type="tns:Paging" />
+  <xs:complexType name="OCNSearchRosterReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="paging" nillable="true" type="tns:Paging" />
+          <xs:element minOccurs="0" name="roster" nillable="true" type="tns:Roster" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNSearchRosterReturn" nillable="true" type="tns:OCNSearchRosterReturn" />
+  <xs:complexType name="Roster">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrpKey" type="xs:int" />
+      <xs:element minOccurs="0" name="members" nillable="true" type="tns:ArrayOfRosterMember" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Roster" nillable="true" type="tns:Roster" />
+  <xs:complexType name="ArrayOfRosterMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RosterMember" nillable="true" type="tns:RosterMember" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRosterMember" nillable="true" type="tns:ArrayOfRosterMember" />
+  <xs:complexType name="RosterMember">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttributeValues" nillable="true" type="tns:ArrayOfAttributeValue" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrefLanguage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="emails" nillable="true" type="tns:ArrayOfEmail" />
+      <xs:element minOccurs="0" name="groupID" type="xs:int" />
+      <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="memkey" type="xs:int" />
+      <xs:element minOccurs="0" name="phones" nillable="true" type="tns:ArrayOfPhone" />
+      <xs:element minOccurs="0" name="status" type="tns:Status" />
+      <xs:element minOccurs="0" name="subgroups" nillable="true" type="tns:ArrayOfSubgroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RosterMember" nillable="true" type="tns:RosterMember" />
+  <xs:complexType name="ArrayOfAttributeValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AttributeValue" nillable="true" type="tns:AttributeValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttributeValue" nillable="true" type="tns:ArrayOfAttributeValue" />
+  <xs:complexType name="AttributeValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataType" type="tns:AttributeDataType" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AttributeValue" nillable="true" type="tns:AttributeValue" />
+  <xs:simpleType name="AttributeDataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FreeformText">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Decimal">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DateTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Currency">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AttributeDataType" nillable="true" type="tns:AttributeDataType" />
+  <xs:complexType name="ArrayOfEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Email" nillable="true" type="tns:Email" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmail" nillable="true" type="tns:ArrayOfEmail" />
+  <xs:complexType name="Email">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Destination">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Email" nillable="true" type="tns:Email" />
+  <xs:complexType name="Destination">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="familyProfile" type="xs:boolean" />
+      <xs:element minOccurs="0" name="key" type="xs:int" />
+      <xs:element minOccurs="0" name="memkey" type="xs:int" />
+      <xs:element minOccurs="0" name="optStatus" type="tns:OptStatus" />
+      <xs:element minOccurs="0" name="remove" type="xs:boolean" />
+      <xs:element minOccurs="0" name="verified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Destination" nillable="true" type="tns:Destination" />
+  <xs:simpleType name="OptStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="I" />
+      <xs:enumeration value="O" />
+      <xs:enumeration value="B" />
+      <xs:enumeration value="NC" />
+      <xs:enumeration value="UR" />
+      <xs:enumeration value="CS" />
+      <xs:enumeration value="UD" />
+      <xs:enumeration value="G" />
+      <xs:enumeration value="GO" />
+      <xs:enumeration value="V" />
+      <xs:enumeration value="IV" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OptStatus" nillable="true" type="tns:OptStatus" />
+  <xs:complexType name="ArrayOfPhone">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Phone" nillable="true" type="tns:Phone" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhone" nillable="true" type="tns:ArrayOfPhone" />
+  <xs:complexType name="Phone">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Destination">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryID" type="xs:int" />
+          <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cellProviderID" type="xs:int" />
+          <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="extension" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="isCell" type="xs:boolean" />
+          <xs:element minOccurs="0" name="isSms" type="xs:boolean" />
+          <xs:element minOccurs="0" name="m_CountryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="number" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="priority" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="smsOptStatus" type="tns:OptStatus" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Phone" nillable="true" type="tns:Phone" />
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="I" />
+      <xs:enumeration value="A" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:complexType name="ArrayOfSubgroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Subgroup" nillable="true" type="tns:Subgroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubgroup" nillable="true" type="tns:ArrayOfSubgroup" />
+  <xs:complexType name="Subgroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EscalationPriority" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="key" type="xs:int" />
+      <xs:element minOccurs="0" name="memkey" type="xs:int" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="selected" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Subgroup" nillable="true" type="tns:Subgroup" />
+  <xs:simpleType name="MessageSearchMethod">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Today">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Yesterday">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Last7Days">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Last30Days">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Last60Days">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Last90Days">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Future">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SpecificDate">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">128</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ThisWeek">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="LastWeek">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">512</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ThisMonth">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1024</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="LastMonth">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2048</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ThisQuarter">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4096</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="LastQuarter">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8192</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="ThisYear">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16384</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="LastYear">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32768</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DateRange">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65536</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="EntireHistory">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">131072</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SpecificMessage">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">262144</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="MessageSearchMethod" nillable="true" type="tns:MessageSearchMethod" />
+  <xs:complexType name="OCNReportReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DetailReport" nillable="true" type="tns:MessageDetailReport" />
+          <xs:element minOccurs="0" name="SummaryReport" nillable="true" type="tns:MessageReport" />
+          <xs:element minOccurs="0" name="paging" nillable="true" type="tns:Paging" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNReportReturn" nillable="true" type="tns:OCNReportReturn" />
+  <xs:complexType name="MessageDetailReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deliveries" nillable="true" type="tns:ArrayOfDelivery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageDetailReport" nillable="true" type="tns:MessageDetailReport" />
+  <xs:complexType name="ArrayOfDelivery">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Delivery" nillable="true" type="tns:Delivery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDelivery" nillable="true" type="tns:ArrayOfDelivery" />
+  <xs:complexType name="Delivery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attempts" type="xs:int" />
+      <xs:element minOccurs="0" name="CallCreditsUsed" type="xs:float" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryID" type="xs:int" />
+      <xs:element minOccurs="0" name="DeliveryStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliveryTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Disposition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Duration" type="xs:int" />
+      <xs:element minOccurs="0" name="ExternalID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstAttemptTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LanguagePlayed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PollResponse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreferredLanguage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Row" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeZone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferMinutes" type="xs:int" />
+      <xs:element minOccurs="0" name="TransferStatus" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Delivery" nillable="true" type="tns:Delivery" />
+  <xs:complexType name="MessageReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ReportGroups" nillable="true" type="tns:ArrayOfMessageReportGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageReport" nillable="true" type="tns:MessageReport" />
+  <xs:complexType name="ArrayOfMessageReportGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageReportGroup" nillable="true" type="tns:MessageReportGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageReportGroup" nillable="true" type="tns:ArrayOfMessageReportGroup" />
+  <xs:complexType name="MessageReportGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrpKey" type="xs:int" />
+      <xs:element minOccurs="0" name="Initiated_DT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InitiationTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageGroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="MessageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Messages" nillable="true" type="tns:ArrayOfMessageReportSummary" />
+      <xs:element minOccurs="0" name="Messenger" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessengerIndKey" type="xs:int" />
+      <xs:element minOccurs="0" name="Row" type="xs:int" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageReportGroup" nillable="true" type="tns:MessageReportGroup" />
+  <xs:complexType name="ArrayOfMessageReportSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageReportSummary" nillable="true" type="tns:MessageReportSummary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageReportSummary" nillable="true" type="tns:ArrayOfMessageReportSummary" />
+  <xs:complexType name="MessageReportSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AvgAttempts" type="xs:float" />
+      <xs:element minOccurs="0" name="CallerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeliverToVoiceMail" type="xs:int" />
+      <xs:element minOccurs="0" name="DistributionType_IND" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndHour" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndHourMilitary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotTransferDeliveredDuration" type="xs:int" />
+      <xs:element minOccurs="0" name="HotTransferDeliveries" type="xs:int" />
+      <xs:element minOccurs="0" name="HotTransferDuration" type="xs:int" />
+      <xs:element minOccurs="0" name="HotTransferRate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotTransfers" type="xs:int" />
+      <xs:element minOccurs="0" name="MessageGroupID" type="xs:int" />
+      <xs:element minOccurs="0" name="MessageWithHotTransfer" type="xs:int" />
+      <xs:element minOccurs="0" name="Message_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="NumAttempts" type="xs:int" />
+      <xs:element minOccurs="0" name="NumCredits" type="xs:float" />
+      <xs:element minOccurs="0" name="NumDelivered" type="xs:int" />
+      <xs:element minOccurs="0" name="NumDeliveredAttempts" type="xs:int" />
+      <xs:element minOccurs="0" name="NumDeliveries" type="xs:int" />
+      <xs:element minOccurs="0" name="NumRemaining" type="xs:int" />
+      <xs:element minOccurs="0" name="NumUndelivered" type="xs:int" />
+      <xs:element minOccurs="0" name="NumberOfOperators" type="xs:int" />
+      <xs:element minOccurs="0" name="PctCompletion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Response" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RmsKey" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDayOfWeek" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartHour" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartHourMilitary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subgroups" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Unique_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageReportSummary" nillable="true" type="tns:MessageReportSummary" />
+  <xs:simpleType name="MessageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Phone" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="SMS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessageType" nillable="true" type="tns:MessageType" />
+  <xs:simpleType name="MessageReportFilterType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Name" />
+      <xs:enumeration value="Phone" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="DeliveryStatus" />
+      <xs:enumeration value="Disposition" />
+      <xs:enumeration value="GroupName" />
+      <xs:enumeration value="Response" />
+      <xs:enumeration value="Quota" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessageReportFilterType" nillable="true" type="tns:MessageReportFilterType" />
+  <xs:complexType name="OCNLanguageOptionsReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LanguageOptions" nillable="true" type="tns:ArrayOfLanguageOption" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNLanguageOptionsReturn" nillable="true" type="tns:OCNLanguageOptionsReturn" />
+  <xs:complexType name="ArrayOfLanguageOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LanguageOption" nillable="true" type="tns:LanguageOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLanguageOption" nillable="true" type="tns:ArrayOfLanguageOption" />
+  <xs:complexType name="LanguageOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="memberCount" type="xs:int" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="selected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="stockMessageCount" type="xs:int" />
+      <xs:element minOccurs="0" name="subgroupNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ttsVoiceCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LanguageOption" nillable="true" type="tns:LanguageOption" />
+  <xs:complexType name="OCNAudioLibraryReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="groupLibrary" nillable="true" type="tns:GroupAudioLibraries" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNAudioLibraryReturn" nillable="true" type="tns:OCNAudioLibraryReturn" />
+  <xs:complexType name="GroupAudioLibraries">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="groupAudioLibrary" nillable="true" type="tns:ArrayOfAudioLibrary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupAudioLibraries" nillable="true" type="tns:GroupAudioLibraries" />
+  <xs:complexType name="ArrayOfAudioLibrary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AudioLibrary" nillable="true" type="tns:AudioLibrary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAudioLibrary" nillable="true" type="tns:ArrayOfAudioLibrary" />
+  <xs:complexType name="AudioLibrary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="audioLibrary_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="files" nillable="true" type="tns:ArrayOfAudioFile" />
+      <xs:element minOccurs="0" name="groupID" type="xs:int" />
+      <xs:element minOccurs="0" name="modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="modifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="multiLingual" type="xs:boolean" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="shared" type="xs:boolean" />
+      <xs:element minOccurs="0" name="source" type="tns:enumSource" />
+      <xs:element minOccurs="0" name="type" type="tns:enumType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AudioLibrary" nillable="true" type="tns:AudioLibrary" />
+  <xs:complexType name="ArrayOfAudioFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AudioFile" nillable="true" type="tns:AudioFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAudioFile" nillable="true" type="tns:ArrayOfAudioFile" />
+  <xs:complexType name="AudioFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="estimatedDuration" type="xs:int" />
+      <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="languageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="modified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="modifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="origFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="recentlyRecorded" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AudioFile" nillable="true" type="tns:AudioFile" />
+  <xs:simpleType name="enumSource">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="AudioLibrary" />
+      <xs:enumeration value="StockLibrary" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="enumSource" nillable="true" type="tns:enumSource" />
+  <xs:simpleType name="enumType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="File" />
+      <xs:enumeration value="Language_Group" />
+      <xs:enumeration value="Sponsor_Folder" />
+      <xs:enumeration value="Greeting_Folder" />
+      <xs:enumeration value="Closing_Folder" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="enumType" nillable="true" type="tns:enumType" />
+  <xs:complexType name="OCNGroupOptionsReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:GroupOptions" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNGroupOptionsReturn" nillable="true" type="tns:OCNGroupOptionsReturn" />
+  <xs:complexType name="GroupOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowMobileRosterEditing" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrpDeliveryEndHour" type="xs:int" />
+      <xs:element minOccurs="0" name="GrpDeliveryStartHour" type="xs:int" />
+      <xs:element minOccurs="0" name="GrpFeaturePlayEnd" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrpFeaturePlayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrpFeaturePlayTones" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrpFeaturePolling" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrpMaxMessageSeconds" type="xs:int" />
+      <xs:element minOccurs="0" name="GrpMaxPhoneNumbers" type="xs:int" />
+      <xs:element minOccurs="0" name="GrpMaxSubGroups" type="xs:int" />
+      <xs:element minOccurs="0" name="GrpMultiDayDelivery" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrpOrigNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HotTransferNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfOperators" type="xs:int" />
+      <xs:element minOccurs="0" name="SendEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SendSMS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuperGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SuperGroupBroadcast" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferRate" type="xs:double" />
+      <xs:element minOccurs="0" name="Transfer_RequestKey" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupOptions" nillable="true" type="tns:GroupOptions" />
+  <xs:complexType name="OCNAudioItemBytesReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AudioItemBytes" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNAudioItemBytesReturn" nillable="true" type="tns:OCNAudioItemBytesReturn" />
+  <xs:complexType name="OCNDestReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNDestReturn" nillable="true" type="tns:OCNDestReturn" />
+  <xs:complexType name="OCNMessengerPrivilegeReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccessToMenuOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AdvancedMessagingOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GroupMemberAdvancedOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GroupMemberEditOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MessagingOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MessengerPrimaryNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportPhoneEmailOptions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SubgroupOptions" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNMessengerPrivilegeReturn" nillable="true" type="tns:OCNMessengerPrivilegeReturn" />
+  <xs:complexType name="OCNAttributeReturn">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OCNReturn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfGroupAttribute" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OCNAttributeReturn" nillable="true" type="tns:OCNAttributeReturn" />
+  <xs:complexType name="ArrayOfGroupAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupAttribute" nillable="true" type="tns:GroupAttribute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupAttribute" nillable="true" type="tns:ArrayOfGroupAttribute" />
+  <xs:complexType name="GroupAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataType" type="tns:AttributeDataType" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupAttribute" nillable="true" type="tns:GroupAttribute" />
+</xs:schema>

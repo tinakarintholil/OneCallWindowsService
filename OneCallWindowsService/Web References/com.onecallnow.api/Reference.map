@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?wsdl" filename="OneCallNow_v3.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?disco" filename="Soap.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd4" filename="Soap.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd3" filename="Soap0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd2" filename="Soap1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd1" filename="Soap2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd0" filename="Soap3.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

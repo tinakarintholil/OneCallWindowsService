@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OCN_v3" />
+  <xs:import schemaLocation="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Service" type="xs:int" />
+        <xs:element minOccurs="0" name="GroupKey" type="xs:int" />
+        <xs:element minOccurs="0" name="Pin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="LoginResult" nillable="true" type="q1:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginWithPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Service" type="xs:int" />
+        <xs:element minOccurs="0" name="GroupKey" type="xs:int" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginWithPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="LoginWithPasswordResult" nillable="true" type="q2:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendAMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MessageName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="MessagesToSend" nillable="true" type="q3:MessagesToSendSettings" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="SubgroupSettings" nillable="true" type="q4:DestinationSettings" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="WhenToSend" nillable="true" type="q5:WhenToSendSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendAMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="SendAMessageResult" nillable="true" type="q6:OCNMessageReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendASavedMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SavedMessageCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="Destinations" nillable="true" type="q7:DestinationSettings" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="WhenToSend" nillable="true" type="q8:WhenToSendSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendASavedMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="SendASavedMessageResult" nillable="true" type="q9:OCNMessageReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendAMessageBuilder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MessageName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="MessageBuilder" nillable="true" type="q10:MessageBuilderSettings" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="Destinations" nillable="true" type="q11:DestinationSettings" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="WhenToSend" nillable="true" type="q12:WhenToSendSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendAMessageBuilderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="SendAMessageBuilderResult" nillable="true" type="q13:OCNMessageReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSavedMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSavedMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="GetSavedMessagesResult" nillable="true" type="q14:OCNSavedMessageInfoReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessageBuilders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessageBuildersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="GetMessageBuildersResult" nillable="true" type="q15:OCNMessageBuilderInfoReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrUpdateSubgroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="updateObj" nillable="true" type="q16:SubGroupUpdate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrUpdateSubgroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="CreateOrUpdateSubgroupResult" nillable="true" type="q17:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTemporarySubgroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="updateObj" nillable="true" type="q18:SubGroupUpdate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTemporarySubgroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="CreateTemporarySubgroupResult" nillable="true" type="q19:OCNSubgroupDataReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSubgroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subgroupKey" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSubgroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="DeleteSubgroupResult" nillable="true" type="q20:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNextAvailableSubgroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subgroupNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNextAvailableSubgroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="GetNextAvailableSubgroupResult" nillable="true" type="q21:OCNSubgroupDataReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoesSubgroupExist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subgroupNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoesSubgroupExistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="DoesSubgroupExistResult" nillable="true" type="q22:OCNSubGroupExistReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveSubgroupInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetCounts" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveSubgroupInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="RetrieveSubgroupInfoResult" nillable="true" type="q23:OCNSubGroupsListReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRoster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="search" nillable="true" type="q24:SearchCriteria" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="paging" nillable="true" type="q25:Paging" />
+        <xs:element minOccurs="0" name="LoadSuperGroup" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchRosterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="SearchRosterResult" nillable="true" type="q26:OCNSearchRosterReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchSubgroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SubgroupNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="search" nillable="true" type="q27:SearchCriteria" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="paging" nillable="true" type="q28:Paging" />
+        <xs:element minOccurs="0" name="LoadSuperGroup" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchSubgroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="SearchSubgroupResult" nillable="true" type="q29:OCNSearchRosterReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateRosterMembers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="rosterMembers" nillable="true" type="q30:ArrayOfRosterMember" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateRosterMembersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="AddUpdateRosterMembersResult" nillable="true" type="q31:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRosterMemberStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memberID" type="xs:int" />
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRosterMemberStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="UpdateRosterMemberStatusResult" nillable="true" type="q32:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRosterMember">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="memberID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRosterMemberResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="DeleteRosterMemberResult" nillable="true" type="q33:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RunRosterPostProcesses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RunRosterPostProcessesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="RunRosterPostProcessesResult" nillable="true" type="q34:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchMessageReports">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MessengerKey" type="xs:int" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="Method" type="q35:MessageSearchMethod" />
+        <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="SubGroupsList" nillable="true" type="xs:string" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="paging" nillable="true" type="q36:Paging" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchMessageReportsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="SearchMessageReportsResult" nillable="true" type="q37:OCNReportReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveMessageReportSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MessageID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveMessageReportSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="RetrieveMessageReportSummaryResult" nillable="true" type="q38:OCNReportReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveMessageReportDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MessageID" type="xs:int" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="MsgType" type="q39:MessageType" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="FilterType" type="q40:MessageReportFilterType" />
+        <xs:element minOccurs="0" name="Filter" nillable="true" type="xs:string" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="paging" nillable="true" type="q41:Paging" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveMessageReportDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="RetrieveMessageReportDetailsResult" nillable="true" type="q42:OCNReportReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLanguageOptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLanguageOptionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="GetLanguageOptionsResult" nillable="true" type="q43:OCNLanguageOptionsReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupAudioLibrary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupAudioLibraryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="GetGroupAudioLibraryResult" nillable="true" type="q44:OCNAudioLibraryReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveGroupOptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveGroupOptionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="RetrieveGroupOptionsResult" nillable="true" type="q45:OCNGroupOptionsReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAudioLibraryItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AudioLibraryID" type="xs:int" />
+        <xs:element minOccurs="0" name="Lang_ISO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deleteFullItem" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAudioLibraryItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="DeleteAudioLibraryItemResult" nillable="true" type="q46:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEditAudioLibraryItemFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="library" nillable="true" type="q47:AudioLibrary" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="file" nillable="true" type="q48:AudioFile" />
+        <xs:element minOccurs="0" name="WAVFileContent" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEditAudioLibraryItemFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="AddEditAudioLibraryItemFileResult" nillable="true" type="q49:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditAudioLibraryItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AudioLibrary_ID" type="xs:int" />
+        <xs:element minOccurs="0" name="AudioLibrary_Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AudioLibrary_Description" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditAudioLibraryItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="EditAudioLibraryItemResult" nillable="true" type="q50:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAudioItemBytes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="audioLibraryID" type="xs:int" />
+        <xs:element minOccurs="0" name="lang_ISO" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAudioItemBytesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="GetAudioItemBytesResult" nillable="true" type="q51:OCNAudioItemBytesReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DeliveryStartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="StartHour" type="xs:int" />
+        <xs:element minOccurs="0" name="EndHour" type="xs:int" />
+        <xs:element minOccurs="0" name="OriginationNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Continue2ndDay" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ResponseNeeded" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="CreateNewMessageResult" nillable="true" type="q52:OCNMessageReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMessageDestinationUsingMessageBuilder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MessageID" type="xs:int" />
+        <xs:element minOccurs="0" name="MessageBuilderCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DestinationName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DestinationPhoneNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DestinationExtension" nillable="true" type="xs:string" />
+        <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PromptForText" nillable="true" type="q53:ArrayOfstring" />
+        <xs:element minOccurs="0" name="DestinationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMessageDestinationUsingMessageBuilderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="AddMessageDestinationUsingMessageBuilderResult" nillable="true" type="q54:OCNDestReturn" />
+        <xs:element minOccurs="0" name="DestinationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MessageID" type="xs:int" />
+        <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="DeliveryStartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="StartHour" type="xs:int" />
+        <xs:element minOccurs="0" name="EndHour" type="xs:int" />
+        <xs:element minOccurs="0" name="Continue2ndDay" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ResponseNeeded" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="UpdateMessageResult" nillable="true" type="q55:OCNReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessengerPrivileges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMessengerPrivilegesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="GetMessengerPrivilegesResult" nillable="true" type="q56:OCNMessengerPrivilegeReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableGroupAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableGroupAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/OCN_v3" minOccurs="0" name="GetAvailableGroupAttributesResult" nillable="true" type="q57:OCNAttributeReturn" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

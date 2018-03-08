@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OneCallNow_v3" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="SoapEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OCN_v3" />
+      <xsd:import schemaLocation="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/OCN.Web.WebControls.WebServices" />
+      <xsd:import schemaLocation="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IOneCallNow_v3_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_LoginWithPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginWithPassword" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_LoginWithPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginWithPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SendAMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendAMessage" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SendAMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendAMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SendASavedMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendASavedMessage" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SendASavedMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendASavedMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SendAMessageBuilder_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendAMessageBuilder" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SendAMessageBuilder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendAMessageBuilderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetSavedMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSavedMessages" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetSavedMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSavedMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetMessageBuilders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageBuilders" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetMessageBuilders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageBuildersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_CreateOrUpdateSubgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrUpdateSubgroup" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_CreateOrUpdateSubgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrUpdateSubgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_CreateTemporarySubgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTemporarySubgroup" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_CreateTemporarySubgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTemporarySubgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_DeleteSubgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubgroup" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_DeleteSubgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetNextAvailableSubgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNextAvailableSubgroup" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetNextAvailableSubgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNextAvailableSubgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_DoesSubgroupExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoesSubgroupExist" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_DoesSubgroupExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoesSubgroupExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_RetrieveSubgroupInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSubgroupInfo" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_RetrieveSubgroupInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSubgroupInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SearchRoster_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchRoster" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SearchRoster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchRosterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SearchSubgroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSubgroup" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SearchSubgroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSubgroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_AddUpdateRosterMembers_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateRosterMembers" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_AddUpdateRosterMembers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUpdateRosterMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_UpdateRosterMemberStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRosterMemberStatus" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_UpdateRosterMemberStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRosterMemberStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_DeleteRosterMember_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRosterMember" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_DeleteRosterMember_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRosterMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_RunRosterPostProcesses_InputMessage">
+    <wsdl:part name="parameters" element="tns:RunRosterPostProcesses" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_RunRosterPostProcesses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RunRosterPostProcessesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SearchMessageReports_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchMessageReports" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_SearchMessageReports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchMessageReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_RetrieveMessageReportSummary_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveMessageReportSummary" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_RetrieveMessageReportSummary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveMessageReportSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_RetrieveMessageReportDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveMessageReportDetails" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_RetrieveMessageReportDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveMessageReportDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetLanguageOptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguageOptions" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetLanguageOptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguageOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetGroupAudioLibrary_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupAudioLibrary" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetGroupAudioLibrary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupAudioLibraryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_RetrieveGroupOptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveGroupOptions" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_RetrieveGroupOptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveGroupOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_DeleteAudioLibraryItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAudioLibraryItem" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_DeleteAudioLibraryItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAudioLibraryItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_AddEditAudioLibraryItemFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEditAudioLibraryItemFile" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_AddEditAudioLibraryItemFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEditAudioLibraryItemFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_EditAudioLibraryItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditAudioLibraryItem" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_EditAudioLibraryItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditAudioLibraryItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetAudioItemBytes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAudioItemBytes" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetAudioItemBytes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAudioItemBytesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_CreateNewMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewMessage" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_CreateNewMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_AddMessageDestinationUsingMessageBuilder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMessageDestinationUsingMessageBuilder" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_AddMessageDestinationUsingMessageBuilder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMessageDestinationUsingMessageBuilderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_UpdateMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMessage" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_UpdateMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetMessengerPrivileges_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessengerPrivileges" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetMessengerPrivileges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessengerPrivilegesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetAvailableGroupAttributes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableGroupAttributes" />
+  </wsdl:message>
+  <wsdl:message name="IOneCallNow_v3_GetAvailableGroupAttributes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableGroupAttributesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IOneCallNow_v3">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/Login" message="tns:IOneCallNow_v3_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/LoginResponse" message="tns:IOneCallNow_v3_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/LoginWithPassword" message="tns:IOneCallNow_v3_LoginWithPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/LoginWithPasswordResponse" message="tns:IOneCallNow_v3_LoginWithPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/SendAMessage" message="tns:IOneCallNow_v3_SendAMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/SendAMessageResponse" message="tns:IOneCallNow_v3_SendAMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendASavedMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/SendASavedMessage" message="tns:IOneCallNow_v3_SendASavedMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/SendASavedMessageResponse" message="tns:IOneCallNow_v3_SendASavedMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendAMessageBuilder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/SendAMessageBuilder" message="tns:IOneCallNow_v3_SendAMessageBuilder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/SendAMessageBuilderResponse" message="tns:IOneCallNow_v3_SendAMessageBuilder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSavedMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetSavedMessages" message="tns:IOneCallNow_v3_GetSavedMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetSavedMessagesResponse" message="tns:IOneCallNow_v3_GetSavedMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageBuilders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetMessageBuilders" message="tns:IOneCallNow_v3_GetMessageBuilders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetMessageBuildersResponse" message="tns:IOneCallNow_v3_GetMessageBuilders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrUpdateSubgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/CreateOrUpdateSubgroup" message="tns:IOneCallNow_v3_CreateOrUpdateSubgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/CreateOrUpdateSubgroupResponse" message="tns:IOneCallNow_v3_CreateOrUpdateSubgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTemporarySubgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/CreateTemporarySubgroup" message="tns:IOneCallNow_v3_CreateTemporarySubgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/CreateTemporarySubgroupResponse" message="tns:IOneCallNow_v3_CreateTemporarySubgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/DeleteSubgroup" message="tns:IOneCallNow_v3_DeleteSubgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/DeleteSubgroupResponse" message="tns:IOneCallNow_v3_DeleteSubgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNextAvailableSubgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetNextAvailableSubgroup" message="tns:IOneCallNow_v3_GetNextAvailableSubgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetNextAvailableSubgroupResponse" message="tns:IOneCallNow_v3_GetNextAvailableSubgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DoesSubgroupExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/DoesSubgroupExist" message="tns:IOneCallNow_v3_DoesSubgroupExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/DoesSubgroupExistResponse" message="tns:IOneCallNow_v3_DoesSubgroupExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSubgroupInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/RetrieveSubgroupInfo" message="tns:IOneCallNow_v3_RetrieveSubgroupInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/RetrieveSubgroupInfoResponse" message="tns:IOneCallNow_v3_RetrieveSubgroupInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchRoster">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/SearchRoster" message="tns:IOneCallNow_v3_SearchRoster_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/SearchRosterResponse" message="tns:IOneCallNow_v3_SearchRoster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSubgroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/SearchSubgroup" message="tns:IOneCallNow_v3_SearchSubgroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/SearchSubgroupResponse" message="tns:IOneCallNow_v3_SearchSubgroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateRosterMembers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/AddUpdateRosterMembers" message="tns:IOneCallNow_v3_AddUpdateRosterMembers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/AddUpdateRosterMembersResponse" message="tns:IOneCallNow_v3_AddUpdateRosterMembers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRosterMemberStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/UpdateRosterMemberStatus" message="tns:IOneCallNow_v3_UpdateRosterMemberStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/UpdateRosterMemberStatusResponse" message="tns:IOneCallNow_v3_UpdateRosterMemberStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRosterMember">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/DeleteRosterMember" message="tns:IOneCallNow_v3_DeleteRosterMember_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/DeleteRosterMemberResponse" message="tns:IOneCallNow_v3_DeleteRosterMember_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RunRosterPostProcesses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/RunRosterPostProcesses" message="tns:IOneCallNow_v3_RunRosterPostProcesses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/RunRosterPostProcessesResponse" message="tns:IOneCallNow_v3_RunRosterPostProcesses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchMessageReports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/SearchMessageReports" message="tns:IOneCallNow_v3_SearchMessageReports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/SearchMessageReportsResponse" message="tns:IOneCallNow_v3_SearchMessageReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveMessageReportSummary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/RetrieveMessageReportSummary" message="tns:IOneCallNow_v3_RetrieveMessageReportSummary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/RetrieveMessageReportSummaryResponse" message="tns:IOneCallNow_v3_RetrieveMessageReportSummary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveMessageReportDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/RetrieveMessageReportDetails" message="tns:IOneCallNow_v3_RetrieveMessageReportDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/RetrieveMessageReportDetailsResponse" message="tns:IOneCallNow_v3_RetrieveMessageReportDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguageOptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetLanguageOptions" message="tns:IOneCallNow_v3_GetLanguageOptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetLanguageOptionsResponse" message="tns:IOneCallNow_v3_GetLanguageOptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupAudioLibrary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetGroupAudioLibrary" message="tns:IOneCallNow_v3_GetGroupAudioLibrary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetGroupAudioLibraryResponse" message="tns:IOneCallNow_v3_GetGroupAudioLibrary_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveGroupOptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/RetrieveGroupOptions" message="tns:IOneCallNow_v3_RetrieveGroupOptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/RetrieveGroupOptionsResponse" message="tns:IOneCallNow_v3_RetrieveGroupOptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAudioLibraryItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/DeleteAudioLibraryItem" message="tns:IOneCallNow_v3_DeleteAudioLibraryItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/DeleteAudioLibraryItemResponse" message="tns:IOneCallNow_v3_DeleteAudioLibraryItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEditAudioLibraryItemFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/AddEditAudioLibraryItemFile" message="tns:IOneCallNow_v3_AddEditAudioLibraryItemFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/AddEditAudioLibraryItemFileResponse" message="tns:IOneCallNow_v3_AddEditAudioLibraryItemFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditAudioLibraryItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/EditAudioLibraryItem" message="tns:IOneCallNow_v3_EditAudioLibraryItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/EditAudioLibraryItemResponse" message="tns:IOneCallNow_v3_EditAudioLibraryItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAudioItemBytes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetAudioItemBytes" message="tns:IOneCallNow_v3_GetAudioItemBytes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetAudioItemBytesResponse" message="tns:IOneCallNow_v3_GetAudioItemBytes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/CreateNewMessage" message="tns:IOneCallNow_v3_CreateNewMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/CreateNewMessageResponse" message="tns:IOneCallNow_v3_CreateNewMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMessageDestinationUsingMessageBuilder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/AddMessageDestinationUsingMessageBuilder" message="tns:IOneCallNow_v3_AddMessageDestinationUsingMessageBuilder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/AddMessageDestinationUsingMessageBuilderResponse" message="tns:IOneCallNow_v3_AddMessageDestinationUsingMessageBuilder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/UpdateMessage" message="tns:IOneCallNow_v3_UpdateMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/UpdateMessageResponse" message="tns:IOneCallNow_v3_UpdateMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessengerPrivileges">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetMessengerPrivileges" message="tns:IOneCallNow_v3_GetMessengerPrivileges_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetMessengerPrivilegesResponse" message="tns:IOneCallNow_v3_GetMessengerPrivileges_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableGroupAttributes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetAvailableGroupAttributes" message="tns:IOneCallNow_v3_GetAvailableGroupAttributes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOneCallNow_v3/GetAvailableGroupAttributesResponse" message="tns:IOneCallNow_v3_GetAvailableGroupAttributes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SoapEndpoint" type="tns:IOneCallNow_v3">
+    <wsp:PolicyReference URI="#SoapEndpoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginWithPassword">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/LoginWithPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAMessage">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/SendAMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendASavedMessage">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/SendASavedMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAMessageBuilder">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/SendAMessageBuilder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSavedMessages">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/GetSavedMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageBuilders">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/GetMessageBuilders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrUpdateSubgroup">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/CreateOrUpdateSubgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTemporarySubgroup">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/CreateTemporarySubgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubgroup">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/DeleteSubgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNextAvailableSubgroup">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/GetNextAvailableSubgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoesSubgroupExist">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/DoesSubgroupExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSubgroupInfo">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/RetrieveSubgroupInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchRoster">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/SearchRoster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSubgroup">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/SearchSubgroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateRosterMembers">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/AddUpdateRosterMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRosterMemberStatus">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/UpdateRosterMemberStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRosterMember">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/DeleteRosterMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunRosterPostProcesses">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/RunRosterPostProcesses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchMessageReports">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/SearchMessageReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveMessageReportSummary">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/RetrieveMessageReportSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveMessageReportDetails">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/RetrieveMessageReportDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguageOptions">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/GetLanguageOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupAudioLibrary">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/GetGroupAudioLibrary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveGroupOptions">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/RetrieveGroupOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAudioLibraryItem">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/DeleteAudioLibraryItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEditAudioLibraryItemFile">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/AddEditAudioLibraryItemFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditAudioLibraryItem">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/EditAudioLibraryItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAudioItemBytes">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/GetAudioItemBytes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewMessage">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/CreateNewMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMessageDestinationUsingMessageBuilder">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/AddMessageDestinationUsingMessageBuilder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessage">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/UpdateMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessengerPrivileges">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/GetMessengerPrivileges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableGroupAttributes">
+      <soap:operation soapAction="http://tempuri.org/IOneCallNow_v3/GetAvailableGroupAttributes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OneCallNow_v3">
+    <wsdl:port name="SoapEndpoint" binding="tns:SoapEndpoint">
+      <soap:address location="https://api.onecallnow.com/WebServiceSource/3.2/Soap.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
